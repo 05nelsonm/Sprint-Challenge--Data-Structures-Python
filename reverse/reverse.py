@@ -45,4 +45,29 @@ class LinkedList:
 
     def reverse_list(self):
         # TO BE COMPLETED
-        pass
+
+        # Base Case (if LL is empty)
+        if self.head is None:
+            return
+
+        # Swap method variables
+        previous_node = None
+        current_node = self.head
+
+        # Loop through all nodes until the end
+        while current_node is not None:
+
+            # Make swap variable the next node
+            swap = current_node.get_next()
+
+            # Overwrite next node with the previous node
+            current_node.set_next(previous_node)
+
+            # Overwrite previous node with current node
+            previous_node = current_node
+
+            # Overwrite current node with our swap variable
+            current_node = swap
+
+        # Set head to previous node
+        self.head = previous_node
